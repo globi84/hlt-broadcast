@@ -5,8 +5,8 @@ import json
 import os
 from lib.Quote2Image import convert
 
-configFile = "config.json"
 scriptRoot = os.path.dirname(os.path.realpath(__file__)) + "\\"
+configFile = scriptRoot + "config.json"
 
 config = json.load(open(configFile))
 
