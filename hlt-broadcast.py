@@ -56,11 +56,11 @@ for index, songNR in enumerate(sys.argv[1:]):
             fg           = "white",
             image        = scriptRoot + config["source"]["background"],
             font_size    = 32,
-            font_file    = config["source"]["font"],
+            font_file    = scriptRoot + config["source"]["font"],
             width        = 530,
             height       = 1000,
             border_color = "black"
         )
 
-        img.save(config["destination"]+"\\" +
+        img.save(scriptRoot + config["destination"]+"\\" +
                  str(index+1) + "_" + str(nr+1) + ".png")
