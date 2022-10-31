@@ -1,9 +1,0 @@
-{
-    "source":{
-       "background" : "image\\background-template-clear.png",
-       "toc"        : "hyms\\Inhaltsverzeichniss.html",
-       "font"       : "Fonts\\GARABD.ttf"
-    },
-    "destination" : "..\\..\\Lieder",
-    "baseURI" : "https://www.churchofjesuschrist.org"
-}

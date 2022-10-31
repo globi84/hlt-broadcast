@@ -1,0 +1,61 @@
+{% extends "master.html.j2" %}
+
+{% block content %}
+
+<h1>Edit Speaker {{ position }}</h1>
+<br>
+
+<form method="post" , action="{{ url_for('edit_flaskSpeaker', speakerCategory=speakerCategory, position=position) }}">
+    {{ form.csrf_token }}
+    <table>
+        <tr>
+            <fieldset class="form-field">
+                <th>{{ form.name.label }}:</th>
+                <th style="width: 1000px">
+                    {{ form.name }}
+                </th>
+        </tr>
+        <tr>
+            <th></th>
+            <th>
+                {% if form.name.errors %}
+                <ul class="errors">
+                    {% for error in form.name.errors %}
+                    <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </th>
+            </fieldset>
+        </tr>
+        <tr>
+            <fieldset class="form-field">
+                <th>{{ form.info.label }}:</th>
+                <th>
+                    {{ form.info }}
+                </th>
+        </tr>
+        <tr>
+            <th></th>
+            <th>
+                {% if form.info.errors %}
+                <ul class="errors">
+                    {% for error in form.name.errors %}
+                    <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </th>
+            </fieldset>
+        </tr>
+        <tr>
+            <th>
+                <br>
+                <button name="submit" class="btn btn-primary">Speichern</button>
+            </th>
+        </tr>
+    </table>
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,4 @@
+requests
+pillow
+lxml
+flask_wtf

@@ -1,0 +1,31 @@
+{
+    "sprecher": {
+        "bischofschaft": "..\\..\\Sprecher\\Bischofschaft",
+        "pfahl": "..\\..\\Sprecher\\Pfahl_Präsidentschaft",
+        "sprecher": "..\\..\\Sprecher\\Sprecher"
+    },
+    "source": {
+        "background": "image\\background-template-clear.png",
+        "toc": "hyms\\Inhaltsverzeichniss.html",
+        "font": "Fonts\\GARABD.ttf"
+    },
+    "destination": "..\\..\\Lieder",
+    "baseURI": "https://www.churchofjesuschrist.org",
+    "apps": [
+        {
+            "name": "obs64.exe",
+            "path": "C:\\Program Files\\obs-studio\\bin\\64bit"
+        },
+        {
+            "name": "Macro Deck 2.exe",
+            "path": "C:\\Program Files\\Macro Deck"
+        },
+        {
+            "name": "msedge.exe",
+            "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application",
+            "args": [
+                "URL von zoom einladung"
+            ]
+        }
+    ]
+}

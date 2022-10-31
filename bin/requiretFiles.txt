@@ -1,0 +1,18 @@
+Bischof.txt
+Bischof_info.txt
+Ratgeber1.txt
+Ratgeber1_info.txt
+Ratgeber2.txt
+Ratgeber2_info.txt
+Pfahl_Prae.txt
+Pfahl_Prae_info.txt
+Pfahl_Rat_1.txt
+Pfahl_Rat_1_info.txt
+Pfahl_Rat_2.txt
+Pfahl_Rat_2_info.txt
+1. Sprecher.txt
+1. Sprecher_info.txt
+2. Sprecher.txt
+2. Sprecher_info.txt
+3. Sprecher.txt
+3. Sprecher_info.txt

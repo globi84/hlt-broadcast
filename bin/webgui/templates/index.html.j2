@@ -1,0 +1,158 @@
+{% extends "master.html.j2" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{url_for('static', filename='css/chosen.css')}}" id="chosen">
+<script src="{{url_for('static', filename='js/chosen.jquery.min.js')}}"></script>
+
+<div class="container">
+
+    <h1>HLT Broadcastsytem</h1>
+
+    <p class="lead">Willkommen zum Einrichtungsassistenten für das Broadcastsytem Winterthur</p>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container">
+        <h2 id="schritt1">Schritt 1: Zoom Starten</h2>
+        <p class="lead">Auf einem zweit Gerät starte das Zoom meeting und stelle folgendes ein.</p>
+        <img src="{{ url_for('static', filename='img/zoom1.png') }}"
+                            class="img-fluid" alt="Responsive image" width="500px">
+        <br>
+        <br>
+        <br>
+        <br>
+
+    </div>
+    <div class="container">
+
+        <h2 id="schritt2">Schritt 2: Sprecher Anpassen</h2>
+        <br>
+        {% for category, speakers in speakersContent.items() %}
+        <div>
+            <h3>{{ category | upper }}</h1>
+                <div class="container">
+                    <table class="table table-dark table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th width="30%">Name</th>
+                                <th width="60%">Information</th>
+                                <th width="10%"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for speaker in speakers %}
+                            <tr>
+                                <td>{{ speaker.name }}</td>
+                                <td>{{ speaker.info }}</td>
+                                <td>
+                                    <form
+                                        action="{{ url_for('edit_flaskSpeaker', speakerCategory=category, position=speaker.position ) }}"
+                                        method="GET" class="form">
+                                        <button name="submit" class="btn btn-primary btn-sm">Edit</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+        <br>
+        <br>
+        {% endfor %}
+    </div>
+    <div class="container">
+        <h2 id="schritt3">Schritt 3: Lieder defnieren</h2>
+
+        <br>
+
+        <form method="post" action="{{ url_for('root')}}">
+
+            <fieldset>
+                <div class="side-by-side clearfix">
+                    <div class="w-75 p-3">
+                        <select id="songNR" name="songNR" data-placeholder="Wähle eine oder mehrere Lied Nr."
+                            class="chzn-select" multiple style="width:350px ;" tabindex="4">
+                            <option value=""></option>
+                            {% for i in range(1, 211) %}
+                            <option value="{{ i }}">{{ i }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+            <br>
+            <button name="submit" class="btn btn-primary">Lieder Generieren</button>
+        </form>
+        <br>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container">
+        <h2 id="schritt4">Schritt 4: Stream Starten</h2>
+        <br>
+        <h3>!!! ACHTUNG OBS WIRD NEU GESTARTET !!!</h3>
+        <br>
+        <form action="{{ url_for('restart_allApps') }}" method="GET" class="form">
+            <button name="submit" class="btn btn-primary">Stream starten</button>
+        </form>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container" class="w-75 p-3">
+        <h2 id="schritt5">Schritt 5: Macrodeck</h2>
+        <br>
+        <p class="lead">Starte die App oder website von Macrodeck um alles zu steuern zu können.</p>
+        <table class="table table-dark">
+            <tr>
+                <th width="50%" class="align-middle text-center" style="font-size: 26px">
+                    Android
+                </th>
+                <th width="50%" class="align-middle text-center" style="font-size: 26px">
+                    andere
+                </th>
+            </tr>
+            <tr>
+                <td class="align-middle">
+                    <a href="https://play.google.com/store/apps/details?id=com.suchbyte.macrodeck">
+                        <img src="{{ url_for('static', filename='img/google-play-badge-logo-png-transparent.png') }}"
+                            class="img-fluid" alt="Responsive image" width="300px">
+                    </a>
+                </td>
+                <td class="align-middle w-75 p-3 text-center">
+                    <a style="font-size: 24px;" href="http://web.macrodeck.org/"
+                        class="badge">http://web.macrodeck.org/</a>
+                    <br>
+                    <br>
+                    <img src="{{ url_for('static', filename='img/qrcode.png') }}" class="img-fluid"
+                        alt="Responsive image" width="200px">
+                </td>
+            </tr>
+        </table>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container">
+        <h2 id="schritt6">Schritt 6: Geniesse das Meeting</h2>
+        <br>
+        <br>
+        <img src="{{ url_for('static', filename='img/rocket.png') }}" class="img-fluid"
+                        alt="Responsive image" width="200px">
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
+
+<script> $(".chzn-select").chosen(); </script>
+{% endblock %}

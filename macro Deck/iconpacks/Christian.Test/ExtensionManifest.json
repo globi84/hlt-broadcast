@@ -1,0 +1,10 @@
+{
+  "type": 1,
+  "name": "Test",
+  "author": "Christian",
+  "repository": "",
+  "packageId": "Christian.Test",
+  "version": "1.0.0",
+  "target-plugin-api-version": 36,
+  "dll": ""
+}
