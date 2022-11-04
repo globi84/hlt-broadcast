@@ -45,10 +45,15 @@ Alles Installieren
 ### OBS
 
 * Szenen importieren: *Szenensammlung -> Importieren* `obs\hlt-zoom.json`
+  
   ![image size="500x"](/doku/img/02.png)
+  
 * Szene auswählen und richtige Ordner auswählen: *Szenensammlung -> HLT-ZOOM*
+  
   ![image size="500x"](/doku/img/03.png)
+  
 * OBS Websocket einschalten und konfigurieren (firewall nicht öffnen): *Werkzeuge -> OBS-websocket-Einstellungen*
+  
   ![image size="500x"](/doku/img/04.png)
 
 
@@ -56,12 +61,17 @@ Alles Installieren
 
 * Macro Deck sollte geschlossen sein auch im systray schauen
 * Den ordner `Macro Deck` nach `%appdata%\` Kopieren. Fals schon ein ordner vorhanden ist. einfach löschen
+  
   ![image size="500x"](/doku/img/08.png)
+  
 * Macro Deck öffnen und Firewall regel zulassen
 * einstellungen (unten links) -> Verbindung -> bei Netzwerkadapter: das richtige interface auswählen
 * Plugin einstellen (Puzzle Teil) -> OBS-WebSocket Plugin -> konfigurieren
+  
   ![image size="500x"](/doku/img/05.png)
+  
   ![image size="500x"](/doku/img/06.png)
+  
   ![image size="500x"](/doku/img/07.png)
 
 ### WebGui
