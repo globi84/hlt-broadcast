@@ -6,3 +6,4 @@ Lieder/*
 config.json
 first_run.flag
 env
+__pycache__/
