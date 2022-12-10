@@ -17,11 +17,12 @@ class EditSpeakerForm(FlaskForm):
     submit = SubmitField('Speichern')
 
 root = path.dirname(path.realpath(__file__))
-configFile = root + "\config.json"
+configFile = root + "\\..\\..\\config.json"
 
 if exists(configFile):
     f = open(configFile, "r", encoding="utf8").read()
     config = json.loads(f)
+    config = config["webgui"]
     speakerPaths = config["sprecher"]
 else:
     print("config file does not exist: "+ configFile)

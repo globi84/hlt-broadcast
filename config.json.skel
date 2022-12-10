@@ -1,0 +1,97 @@
+{
+    "controllCamera": {
+        "atemSwitcher": "IP of AtemSwitcher",
+        "cam": {
+            "1": "IP of Camera1",
+            "2": "IP of Camera2"
+        },
+        "positions": {
+            "podium": {
+                "pos": 1 ,
+                "camera": 1,
+                "direct": false
+            },
+            "pultgr": {
+                "pos": 2,
+                "camera": 1,
+                "direct": false
+            },
+            "pultgrdirect": {
+                "pos": 2,
+                "camera": 1,
+                "direct": true
+            },
+            "pultkl": {
+                "pos": 3,
+                "camera": 1,
+                "direct": false
+            },
+            "pultkldirect": {
+                "pos": 3,
+                "camera": 1,
+                "direct": true
+            },
+            "dirigent": {
+                "pos": 4,
+                "camera": 1,
+                "direct": false
+            },
+            "chor": {
+                "pos": 5,
+                "camera": 1,
+                "direct": false
+            },
+            "klavier": {
+                "pos": 6,
+                "camera": 2,
+                "direct": false
+            },
+            "orgel": {
+                "pos": 6,
+                "camera": 1,
+                "direct": false
+            },
+            "segnung": {
+                "pos": 7,
+                "camera": 1,
+                "direct": false
+            },
+            "full": {
+                "pos": 8,
+                "camera": 1,
+                "direct": false
+            }
+        }
+    },
+    "webgui": {
+        "sprecher": {
+            "bischofschaft": "..\\..\\Sprecher\\Bischofschaft",
+            "pfahl": "..\\..\\Sprecher\\Pfahl_Präsidentschaft",
+            "sprecher": "..\\..\\Sprecher\\Sprecher"
+        },
+        "source": {
+            "background": "image\\background-template-clear.png",
+            "toc": "hyms\\Inhaltsverzeichniss.html",
+            "font": "Fonts\\GARABD.ttf"
+        },
+        "destination": "..\\..\\Lieder",
+        "baseURI": "https://www.churchofjesuschrist.org",
+        "apps": [
+            {
+                "name": "obs64.exe",
+                "path": "C:\\Program Files\\obs-studio\\bin\\64bit"
+            },
+            {
+                "name": "Macro Deck 2.exe",
+                "path": "C:\\Program Files\\Macro Deck"
+            },
+            {
+                "name": "msedge.exe",
+                "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application",
+                "args": [
+                    "ZOOM einladungslink"
+                ]
+            }
+        ]
+    }
+}

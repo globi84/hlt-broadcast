@@ -3,7 +3,7 @@ param(
 )
 
 if (Test-Path $configFile){
-    $config = Get-Content $configFile | ConvertFrom-Json
+    $config = (Get-Content $configFile | ConvertFrom-Json).webgui
 
     foreach ($app in $config.apps){
         if ($app.name -notlike "msedge*"){

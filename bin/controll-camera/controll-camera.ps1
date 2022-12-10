@@ -2,14 +2,14 @@ param(
     [Parameter(Mandatory)]
     [ValidateScript(
         {
-            $config = Get-Content "$PSScriptRoot\config.json" | ConvertFrom-Json
+            $config = (Get-Content "$PSScriptRoot\..\..\config.json" | ConvertFrom-Json).controllCamera
             $_ -in ($config.positions | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name)
         }
         )]
     [ArgumentCompleter(
         {
             param($cmd, $param, $wordToComplete)
-            $config = Get-Content "$PSScriptRoot\config.json" | ConvertFrom-Json
+            $config = (Get-Content "$PSScriptRoot\..\..\config.json"| ConvertFrom-Json).controllCamera
             [array] $validValues = ($config.positions | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name)
             $validValues -like "$wordToComplete*"
         }
@@ -17,7 +17,7 @@ param(
     [string]$position = ""
 )
 
-$configFile = "$PSScriptRoot\config.json"
+$configFile = "$PSScriptRoot\..\..\config.json"
 
 function Connect-Atem {
     param (
@@ -47,11 +47,12 @@ function Move-Camera {
 
 if (Test-Path $configFile) {
     Add-Type -Path "$PSScriptRoot\lib\SwitcherLib.dll"
-    $config = Get-Content $configFile | ConvertFrom-Json
+    $config = (Get-Content $configFile | ConvertFrom-Json).controllCamera
 
     # load config
     $camera         = $config.positions.($position).camera
     $cameraIP       = $config.cam.($camera.tostring())
+    $cameraDirect   = $config.positions.($position).direct
     $atemSwitcherIP = $config.atemSwitcher
     $cameraPosition = $config.positions.($position).pos
 
@@ -59,7 +60,7 @@ if (Test-Path $configFile) {
     $atemSwitcher = Connect-Atem $atemSwitcherIP
 
 
-    if ($camera -eq $atemSwitcher.Program){
+    if ($camera -eq $atemSwitcher.Program -and -not $atemSwitcherIP){
         $keys = $config.cam | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name
         $tempCam = $keys | Where-Object {$_ -ne $camera}
         $tempCamIP = $config.cam.($tempCam.tostring())
