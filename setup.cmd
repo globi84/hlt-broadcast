@@ -36,7 +36,7 @@ if %ERRORLEVEL% == 0 (
 
     xcopy "%ROOT%obs-studio" "%APPDATA%\obs-studio" /E /C /H /I /R /Y
     xcopy "%ROOT%Macro Deck" "%APPDATA%\Macro Deck" /E /C /H /I /R /Y
-    xcopy "%ROOT%config.json.skel" "%ROOT%config.json" /R /Y
+    copy "%ROOT%config.json.skel" "%ROOT%config.json" /Y
 
     echo ##################################
     echo #
@@ -49,7 +49,7 @@ if %ERRORLEVEL% == 0 (
     powershell -NoProfile "%ROOT%bin/setup/create_speaker.ps1"
     powershell -NoProfile "%ROOT%bin/setup/webgui.ps1"
     powershell -NoProfile "%ROOT%bin/setup/firewall.ps1"
-    powershell -NoProfile "%ROOT%bin/setup/set-env.ps1 %ROOT%"
+    powershell -NoProfile "%ROOT%bin/setup/set-env.ps1" %ROOT%
 
     echo ################################################
     echo #
