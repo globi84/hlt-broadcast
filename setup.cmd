@@ -40,22 +40,16 @@ if %ERRORLEVEL% == 0 (
 
     echo ##################################
     echo #
-    echo # Create Folder and config webgui
+    echo # Custom Config
     echo #
     echo ##################################
     timeout 2
 
     powershell -NoProfile "Set-ExecutionPolicy RemoteSigned"
-    powershell -NoProfile "%ROOT%bin/setup/setup.ps1"
-
-    echo ##################################
-    echo #
-    echo # edit firewall rules
-    echo #
-    echo ##################################
-    timeout 2
-
+    powershell -NoProfile "%ROOT%bin/setup/create_speaker.ps1"
+    powershell -NoProfile "%ROOT%bin/setup/webgui.ps1"
     powershell -NoProfile "%ROOT%bin/setup/firewall.ps1"
+    powershell -NoProfile "%ROOT%bin/setup/set-env.ps1"
 
     echo ################################################
     echo #
