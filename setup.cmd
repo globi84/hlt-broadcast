@@ -12,7 +12,7 @@ if %ERRORLEVEL% == 0 (
 
     winget install OBSProject.OBSStudio
     winget install Zoom.Zoom
-    winget install Python.Python.3.11
+    winget install Python.Python.3.10
 
     echo ###################################################
     echo #
