@@ -18,10 +18,10 @@ Install Manual
     * ✅ Lieder text generator
     * ✅ start von allen Applikationen
 * ✅ Remote control von Kamera (damit man unten bei der Familie sitzen kann)
+* ✅ Install script
 
 ### planed Features
 
-* ❌ Install script
 * ❌ WebGui Lieder Titel suche
 * ❌ Bugfix
 
@@ -29,7 +29,28 @@ Install Manual
 
 * ❌ Lied #200 wird nicht erstellt
 
-## Prerequisits
+
+## Install
+
+### auto install
+
+* run `setup.cmd` as admin
+
+Danach muss folgendes noch gemacht werden:
+
+* config.json Anpassen
+  * IP vom ATEM Switcher
+  * IP von beiden Kameras
+  * zoom einladungslink
+  * Kameras so konfigurieren wie du glücklich bist. 😊
+* obs öffnen und Pfade zu den Medien setzen
+* OBS Websocket passwort ändern: *Werkzeuge -> OBS-websocket-Einstellungen*
+* check path in macrodeck macros
+* Password für obs-plugin in macrodeck setzen
+
+### manual install
+
+#### Prerequisites
 
 Alles Installieren
 
@@ -40,24 +61,18 @@ Alles Installieren
 | Zoom        | [Download](https://zoom.us/download)          | `winget install Zoom.Zoom`            |
 | Python3.10  | [Download](https://www.python.org/downloads/) | `winget install Python.Python.3.10`   |
 
-## Install
+#### OBS
 
-### OBS
-
-* Szenen importieren: *Szenensammlung -> Importieren* `obs\hlt-zoom.json`
-
-  ![image size="500x"](/doku/img/02.png)
-
-* Szene auswählen und richtige Ordner auswählen: *Szenensammlung -> HLT-ZOOM*
-
-  ![image size="500x"](/doku/img/03.png)
-
-* OBS Websocket einschalten und konfigurieren (firewall nicht öffnen): *Werkzeuge -> OBS-websocket-Einstellungen*
+* obs sollte zu sein.
+* Den Ordner `obs-studio` nach `%appdata%\` kopieren.
+* obs öffnen und Pfade zu den Medien setzen
+* OBS Websocket konfigurieren (firewall nicht öffnen): *Werkzeuge -> OBS-websocket-Einstellungen*
+  * Standard Password: `1234.qwer`
 
   ![image size="500x"](/doku/img/04.png)
 
 
-### Macro Deck
+#### Macro Deck
 
 * Macro Deck sollte geschlossen sein auch im systray schauen
 * Den ordner `Macro Deck` nach `%appdata%\` Kopieren. Fals schon ein ordner vorhanden ist. einfach löschen
@@ -74,11 +89,10 @@ Alles Installieren
 
   ![image size="500x"](/doku/img/07.png)
 
-### WebGui
+#### WebGui
 
 * mit Terminal in den ordner `bin/Webgui` gehen
 * `pip install -r requirements.txt` ausführen
-* `config.json.skel` zu `config.json` umbenennen und konfigurieren
 
 #### tools
 

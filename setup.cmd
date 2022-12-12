@@ -57,8 +57,11 @@ if %ERRORLEVEL% == 0 (
 
     echo ################################################
     echo #
-    echo # Edit config.json
-    echo # and check path in macrodeck macros
+    echo # TO DO's:
+    echo # * Edit config.json
+    echo # * check OBS Paths to media
+    echo # * check path in macrodeck macros
+    echo # * set password for obs-plugin in macrodeck
     echo #
     echo ################################################
 
