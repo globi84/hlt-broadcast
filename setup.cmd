@@ -49,7 +49,7 @@ if %ERRORLEVEL% == 0 (
     powershell -NoProfile "%ROOT%bin/setup/create_speaker.ps1"
     powershell -NoProfile "%ROOT%bin/setup/webgui.ps1"
     powershell -NoProfile "%ROOT%bin/setup/firewall.ps1"
-    powershell -NoProfile "%ROOT%bin/setup/set-env.ps1"
+    powershell -NoProfile "%ROOT%bin/setup/set-env.ps1 %ROOT%"
 
     echo ################################################
     echo #
