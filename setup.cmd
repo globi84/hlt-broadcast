@@ -46,6 +46,14 @@ if %ERRORLEVEL% == 0 (
     powershell -NoProfile "Set-ExecutionPolicy RemoteSigned"
     powershell -NoProfile "bin/setup/setup.ps1"
 
+    echo ##################################
+    echo #
+    echo # edit firewall rules
+    echo #
+    echo ##################################
+    timeout 2
+
+    powershell -NoProfile "bin/setup/firewall.ps1"
 
     echo ################################################
     echo #
