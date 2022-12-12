@@ -1,8 +1,10 @@
 @echo off
 
-net session 2> nul
+set root=%~dp0
+net session > nul
 
 if %ERRORLEVEL% == 0 (
+
     echo ######################
     echo #
     echo # Install prereqisits
@@ -32,9 +34,9 @@ if %ERRORLEVEL% == 0 (
     echo ######################
     timeout 2
 
-    xcopy "obs-studio" "%APPDATA%\obs-studio" /E /C /H /I /R /Y
-    xcopy "Macro Deck" "%APPDATA%\Macro Deck" /E /C /H /I /R /Y
-    copy config.json.skel config.json /Y
+    xcopy "%ROOT%obs-studio" "%APPDATA%\obs-studio" /E /C /H /I /R /Y
+    xcopy "%ROOT%Macro Deck" "%APPDATA%\Macro Deck" /E /C /H /I /R /Y
+    xcopy "%ROOT%config.json.skel" "%ROOT%config.json" /R /Y
 
     echo ##################################
     echo #
@@ -44,7 +46,7 @@ if %ERRORLEVEL% == 0 (
     timeout 2
 
     powershell -NoProfile "Set-ExecutionPolicy RemoteSigned"
-    powershell -NoProfile "bin/setup/setup.ps1"
+    powershell -NoProfile "%ROOT%bin/setup/setup.ps1"
 
     echo ##################################
     echo #
@@ -53,7 +55,7 @@ if %ERRORLEVEL% == 0 (
     echo ##################################
     timeout 2
 
-    powershell -NoProfile "bin/setup/firewall.ps1"
+    powershell -NoProfile "%ROOT%bin/setup/firewall.ps1"
 
     echo ################################################
     echo #
