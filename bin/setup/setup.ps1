@@ -43,7 +43,7 @@ if (Test-Path $configFile){
     }
 
 
-    pip install -r "..\webgui\requirements.txt"
+    pip install -r "$PSScriptRoot\..\webgui\requirements.txt"
 }else{
     Write-Error "no configfile found: $configFile"
 }

@@ -3,7 +3,6 @@
 net session 2> nul
 
 if %ERRORLEVEL% == 0 (
-    SET root=%~dp0
     echo ######################
     echo #
     echo # Install prereqisits
@@ -33,8 +32,9 @@ if %ERRORLEVEL% == 0 (
     echo ######################
     timeout 2
 
-    xcopy "%root%\obs-studio" "%APPDATA%\obs-studio" /E /C /H /I /R /Y
-    xcopy "%root%\Macro Deck" "%APPDATA%\Macro Deck" /E /C /H /I /R /Y
+    xcopy "obs-studio" "%APPDATA%\obs-studio" /E /C /H /I /R /Y
+    xcopy "Macro Deck" "%APPDATA%\Macro Deck" /E /C /H /I /R /Y
+    copy config.json.skel config.json /Y
 
     echo ##################################
     echo #
@@ -46,6 +46,16 @@ if %ERRORLEVEL% == 0 (
     powershell -NoProfile "Set-ExecutionPolicy RemoteSigned"
     powershell -NoProfile "bin/setup/setup.ps1"
 
+
+    echo ################################################
+    echo #
+    echo # Edit config.json
+    echo # and check path in macrodeck macros
+    echo #
+    echo ################################################
+
+    pause
+    exit /b
 ) ELSE (
     echo run as admin
 )
