@@ -1,4 +1,5 @@
-$configFile = "$PSScriptRoot\config.json"
+$configFile = "$PSScriptRoot\..\..\config.json"
+$Env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
 
 $defaultSpeaker = @{
     "Bischofschaft" = @(
@@ -19,7 +20,7 @@ $defaultSpeaker = @{
 }
 
 if (Test-Path $configFile){
-    $config = Get-Content $configFile -encoding UTF8 | ConvertFrom-Json
+    $config = (Get-Content $configFile -encoding UTF8 | ConvertFrom-Json).webgui
 
     if (-not (Test-Path "$PSScriptRoot\$($config.destination)")){
         mkdir "$PSScriptRoot\$($config.destination)"
@@ -40,6 +41,9 @@ if (Test-Path $configFile){
             Write-Host "$($config.sprecher.$speaker) already exist."
         }
     }
+
+
+    pip install -r "..\webgui\requirements.txt"
 }else{
     Write-Error "no configfile found: $configFile"
 }

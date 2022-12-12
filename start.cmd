@@ -1,10 +1,10 @@
 @echo off
 cd %~dp0bin\webgui
 
-if not exist first_run.flag (
-    start "first-run" /wait powershell /noprofile .\first_run.ps1
-    echo %DATE% - %TIME% > first_run.flag
-)
+rem if not exist first_run.flag (
+rem     start "first-run" /wait powershell /noprofile .\first_run.ps1
+rem     echo %DATE% - %TIME% > first_run.flag
+rem )
 
 if exist env call "env/Scripts/Activate"
 start /min python webgui.py
