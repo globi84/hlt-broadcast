@@ -69,4 +69,6 @@ if %ERRORLEVEL% == 0 (
     exit /b
 ) ELSE (
     echo run as admin
+    pause
+    exit /b
 )
