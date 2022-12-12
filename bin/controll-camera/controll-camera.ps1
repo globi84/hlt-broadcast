@@ -60,7 +60,7 @@ if (Test-Path $configFile) {
     $atemSwitcher = Connect-Atem $atemSwitcherIP
 
 
-    if ($camera -eq $atemSwitcher.Program -and -not $atemSwitcherIP){
+    if ($camera -eq $atemSwitcher.Program -and -not $cameraDirect){
         $keys = $config.cam | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name
         $tempCam = $keys | Where-Object {$_ -ne $camera}
         $tempCamIP = $config.cam.($tempCam.tostring())
