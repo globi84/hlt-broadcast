@@ -14,7 +14,8 @@ param(
             $validValues -like "$wordToComplete*"
         }
     )]
-    [string]$position = ""
+    [string]$position = "",
+    [int]$forceCam = 0
 )
 
 $configFile = "$PSScriptRoot\..\..\config.json"
@@ -51,6 +52,9 @@ if (Test-Path $configFile) {
 
     # load config
     $camera         = $config.positions.($position).camera
+    if ($forceCam){
+        $camera = $forceCam
+    }
     $cameraIP       = $config.cam.($camera.tostring())
     $cameraDirect   = $config.positions.($position).direct
     $atemSwitcherIP = $config.atemSwitcher
@@ -58,7 +62,6 @@ if (Test-Path $configFile) {
 
     # connect to atem switcher
     $atemSwitcher = Connect-Atem $atemSwitcherIP
-
 
     if ($camera -eq $atemSwitcher.Program -and -not $cameraDirect){
         $keys = $config.cam | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name
