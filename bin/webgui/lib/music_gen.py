@@ -63,5 +63,5 @@ def generate_songText(config, songNRs):
                 border_color = "black"
             )
 
-            img.save(config["destination"]+"\\" +
+            img.save(scriptRoot + "\\..\\" + config["destination"]+"\\" +
                     str(index+1) + "_" + str(nr+1) + ".png")

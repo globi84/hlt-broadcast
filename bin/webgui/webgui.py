@@ -35,11 +35,13 @@ app.config['SECRET_KEY'] = ']\Z_GA<+*41&b\]Z1aJ9TyEs2NJM9cJl=6'
 @app.route('/', methods=["GET", "POST"])
 def root():
     if request.method == "POST":
-        if request.form.getlist('songNR'):
-            generate_songText(config, request.form.getlist('songNR'))
-            return redirect(url_for("root", _anchor='schritt3'))
-        else:
-            flash("Invalid input", "danger")
+        songList = []
+        formSongs = ["songNR1","songNR2","songNR3","songNR4","songNR5","songNR6"]
+        for formsong in formSongs:
+            if request.form.get(formsong):
+                songList.append(request.form.get(formsong))
+        generate_songText(config, songList)
+        return redirect(url_for("root", _anchor='schritt3'))
     speakersContent = {}
     for speakerCategory in speakerPaths.keys():
         path = rootPath +"\\"+ speakerPaths[speakerCategory]
