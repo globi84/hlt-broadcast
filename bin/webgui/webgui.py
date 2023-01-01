@@ -16,8 +16,8 @@ class EditSpeakerForm(FlaskForm):
     position = StringField("position", validators=[ length(max=64)])
     submit = SubmitField('Speichern')
 
-root = path.dirname(path.realpath(__file__))
-configFile = root + "\\..\\..\\config.json"
+rootPath = path.dirname(path.realpath(__file__))
+configFile = rootPath + "\\..\\..\\config.json"
 
 if exists(configFile):
     f = open(configFile, "r", encoding="utf8").read()
@@ -42,7 +42,8 @@ def root():
             flash("Invalid input", "danger")
     speakersContent = {}
     for speakerCategory in speakerPaths.keys():
-        speakersContent[speakerCategory] = get_speakers(speakerPaths[speakerCategory])
+        path = rootPath +"\\"+ speakerPaths[speakerCategory]
+        speakersContent[speakerCategory] = get_speakers(path)
     try:
         return render_template('index.html.j2', speakersContent=speakersContent)
     except TemplateNotFound:
