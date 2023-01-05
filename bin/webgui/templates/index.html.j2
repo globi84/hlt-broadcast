@@ -74,62 +74,62 @@
             <fieldset>
                 <div class="side-by-side clearfix">
                     <div class="w-75 p-3">
-                        <label for="songNR1">Wähle ein Lied: </label>
-                        <select id="songNR1" name="songNR1" data-placeholder="Wähle eine oder mehrere Lied Nr."
+                        <label for="songNR1">Lied #1: </label>
+                        <select id="songNR1" name="songNR1" data-placeholder="Wähle eine Lied Nr. aus"
                             class="chzn-select" style="width:350px ;" tabindex="4">
                             <option value=""></option>
-                            {% for i in range(1, 211) %}
-                            <option value="{{ i }}">{{ i }}</option>
+                            {% for songTitle in songTitles %}
+                            <option value="{{ songTitle.nr }}">{{ songTitle.nr }}: {{songTitle.title}}</option>
                             {% endfor %}
                         </select>
                     </div>
                     <div class="w-75 p-3">
-                        <label for="songNR2">Wähle ein Lied: </label>
-                        <select id="songNR2" name="songNR2" data-placeholder="Wähle eine oder mehrere Lied Nr."
+                        <label for="songNR2">Lied #2: </label>
+                        <select id="songNR2" name="songNR2" data-placeholder="Wähle eine Lied Nr. aus"
                             class="chzn-select" style="width:350px ;" tabindex="4">
                             <option value=""></option>
-                            {% for i in range(1, 211) %}
-                            <option value="{{ i }}">{{ i }}</option>
+                            {% for songTitle in songTitles %}
+                            <option value="{{ songTitle.nr }}">{{ songTitle.nr }}: {{songTitle.title}}</option>
                             {% endfor %}
                         </select>
                     </div>
                     <div class="w-75 p-3">
-                        <label for="songNR3">Wähle ein Lied: </label>
-                        <select id="songNR3" name="songNR3" data-placeholder="Wähle eine oder mehrere Lied Nr."
+                        <label for="songNR3">Lied #3: </label>
+                        <select id="songNR3" name="songNR3" data-placeholder="Wähle eine Lied Nr. aus"
                             class="chzn-select" style="width:350px ;" tabindex="4">
                             <option value=""></option>
-                            {% for i in range(1, 211) %}
-                            <option value="{{ i }}">{{ i }}</option>
+                            {% for songTitle in songTitles %}
+                            <option value="{{ songTitle.nr }}">{{ songTitle.nr }}: {{songTitle.title}}</option>
                             {% endfor %}
                         </select>
                     </div>
                     <div class="w-75 p-3">
-                        <label for="songNR4">Wähle ein Lied: </label>
-                        <select id="songNR4" name="songNR4" data-placeholder="Wähle eine oder mehrere Lied Nr."
+                        <label for="songNR4">Lied #4: </label>
+                        <select id="songNR4" name="songNR4" data-placeholder="Wähle eine Lied Nr. aus"
                             class="chzn-select" style="width:350px ;" tabindex="4">
                             <option value=""></option>
-                            {% for i in range(1, 211) %}
-                            <option value="{{ i }}">{{ i }}</option>
+                            {% for songTitle in songTitles %}
+                            <option value="{{ songTitle.nr }}">{{ songTitle.nr }}: {{songTitle.title}}</option>
                             {% endfor %}
                         </select>
                     </div>
                     <div class="w-75 p-3">
-                        <label for="songNR5">Wähle ein Lied: </label>
-                        <select id="songNR5" name="songNR5" data-placeholder="Wähle eine oder mehrere Lied Nr."
+                        <label for="songNR5">Lied #5: </label>
+                        <select id="songNR5" name="songNR5" data-placeholder="Wähle eine Lied Nr. aus"
                             class="chzn-select" style="width:350px ;" tabindex="4">
                             <option value=""></option>
-                            {% for i in range(1, 211) %}
-                            <option value="{{ i }}">{{ i }}</option>
+                            {% for songTitle in songTitles %}
+                            <option value="{{ songTitle.nr }}">{{ songTitle.nr }}: {{songTitle.title}}</option>
                             {% endfor %}
                         </select>
                     </div>
                     <div class="w-75 p-3">
-                        <label for="songNR6">Wähle ein Lied: </label>
-                        <select id="songNR6" name="songNR6" data-placeholder="Wähle eine oder mehrere Lied Nr."
+                        <label for="songNR6">Lied #6: </label>
+                        <select id="songNR6" name="songNR6" data-placeholder="Wähle eine Lied Nr. aus"
                             class="chzn-select" style="width:350px ;" tabindex="4">
                             <option value=""></option>
-                            {% for i in range(1, 211) %}
-                            <option value="{{ i }}">{{ i }}</option>
+                            {% for songTitle in songTitles %}
+                            <option value="{{ songTitle.nr }}">{{ songTitle.nr }}: {{songTitle.title}}</option>
                             {% endfor %}
                         </select>
                     </div>

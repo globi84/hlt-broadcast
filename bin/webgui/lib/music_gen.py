@@ -65,3 +65,20 @@ def generate_songText(config, songNRs):
 
             img.save(scriptRoot + "\\..\\" + config["destination"]+"\\" +
                     str(index+1) + "_" + str(nr+1) + ".png")
+
+def get_songTitles(config):
+    """get a list of dict with songnr as key and title as value"""
+    scriptRoot = os.path.dirname(os.path.realpath(__file__)) + "\\"
+    # Inhaltsverzeichniss öffnen
+    toc = open(scriptRoot + config["source"]["toc"], "r", encoding="utf8")
+    toc_read = toc.read()
+    # Urls auslesen
+    a = re.findall('songNumber.+?>(?P<songnr>\d+)<.+?<span>(?P<songtext>(.|\n)+?)</span>', toc_read)
+    lieder = []
+    for b in a:
+        tempnr = b[0]
+        temptext = b[1].replace("\n","")
+        temptext = ' '.join(temptext.split())
+        lieder.append({"nr":tempnr,"title":temptext})
+
+    return lieder

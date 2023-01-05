@@ -8,7 +8,7 @@ from os import  path,system
 from os.path import exists
 import json
 from lib.speakers import get_speaker,get_speakers,set_speaker
-from lib.music_gen import generate_songText
+from lib.music_gen import generate_songText,get_songTitles
 
 class EditSpeakerForm(FlaskForm):
     name = StringField("Name", validators=[input_required(), length(max=64)])
@@ -31,6 +31,8 @@ else:
 app  = Flask(__name__)
 app.config['SECRET_KEY'] = ']\Z_GA<+*41&b\]Z1aJ9TyEs2NJM9cJl=6'
 
+songTitles = get_songTitles(config)
+
 
 @app.route('/', methods=["GET", "POST"])
 def root():
@@ -47,7 +49,7 @@ def root():
         path = rootPath +"\\"+ speakerPaths[speakerCategory]
         speakersContent[speakerCategory] = get_speakers(path)
     try:
-        return render_template('index.html.j2', speakersContent=speakersContent)
+        return render_template('index.html.j2', speakersContent=speakersContent, songTitles=songTitles)
     except TemplateNotFound:
         abort(404)
 
