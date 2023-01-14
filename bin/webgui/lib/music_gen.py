@@ -8,7 +8,7 @@ def generate_songText(config, songNRs):
 
     scriptRoot = os.path.dirname(os.path.realpath(__file__)) + "\\"
 
-    deletFotos = "del /F /S /Q " + config["destination"] + "\*"
+    deletFotos = "del /F /S /Q " + scriptRoot + "\\..\\"+ config["destination"] + "\*"
     os.system(deletFotos)
 
     for index, songNR in enumerate(songNRs):
@@ -31,7 +31,7 @@ def generate_songText(config, songNRs):
         while i < len(songHtml):
             songPhrase = ""
             regStrophe = re.search(
-                '<p class="line" data-aid.+">\d\. </span>', songHtml[i])
+                'id="[^"]+">(?:<span class="verse-number">[^<]+<\/span>)?(.*?)<\/p>', songHtml[i])
             if regStrophe:
                 while i < len(songHtml):
                     regSong = re.search(
@@ -44,7 +44,8 @@ def generate_songText(config, songNRs):
                     elif regSong:
                         songPhrase += regSong[1].replace('</span>', '') + " "
                     elif regEndStanza:
-                        songText.append(songPhrase)
+                        if songPhrase:
+                            songText.append(songPhrase)
                         break
                     i += 1
             i += 1
