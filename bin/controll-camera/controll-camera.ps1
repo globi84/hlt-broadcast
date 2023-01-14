@@ -73,7 +73,7 @@ if (Test-Path $configFile) {
         Start-Sleep -Milliseconds 1500
         $atemSwitcher.Program = $tempCam
         Move-Camera $cameraIP $cameraPosition
-        Start-Sleep 7
+        Start-Sleep 5
     }
 
     Move-Camera $cameraIP $cameraPosition
