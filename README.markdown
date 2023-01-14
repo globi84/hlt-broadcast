@@ -17,17 +17,17 @@ Install Manual
     * ✅ Sprecher rollen editieren
     * ✅ Lieder text generator
     * ✅ start von allen Applikationen
+    * ✅ Lieder Titel suche
 * ✅ Remote control von Kamera (damit man unten bei der Familie sitzen kann)
 * ✅ Install script
 
 ### planed Features
 
-* ❌ WebGui Lieder Titel suche
 * ❌ Bugfix
 
 ### known issue
 
-* ❌ Lied #200 wird nicht erstellt
+* ✅ Lied #200 wird nicht erstellt
 
 
 ## Install
