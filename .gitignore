@@ -1,5 +1,5 @@
 test
-
+debug
 Sprecher/*/
 Lieder/*
 #config file
@@ -7,3 +7,4 @@ config.json
 first_run.flag
 env
 __pycache__/
+.vscode/launch.json
