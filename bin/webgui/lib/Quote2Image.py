@@ -1,60 +1,37 @@
-from PIL import Image, ImageDraw, ImageFont, ImageFilter
-import random, math
+from PIL import Image, ImageDraw, ImageFont
+import textwrap
 
-def convert(quote, author, fg, image, border_color, font_file=None, font_size=None,width=None,height=None):
-    x1 = width if width else 612
-    y1 = height if height else 612
+def textsize(text, font):
+    im = Image.new(mode="RGB", size=(0, 0))
+    draw = ImageDraw.Draw(im)
+    _, _, width, height = draw.textbbox((0, 0), text=text, font=font)
+    return width, height
 
-    sentence = f"{author} \n\n {quote}"
+def convert(quote, author, fg, image, border_color, font_file=None, font_size=None, width=520, height=550):
+    sentence = f"{author}\n\n{quote}"
 
-    quote = ImageFont.truetype(font_file if font_file else "fonts/Coves Bold.otf", font_size if font_size else 32)
-
-    #img = Image.new("RGB", (x1, y1), color=(0,255,0))
+    quote_font = ImageFont.truetype(font_file if font_file else "fonts/Coves Bold.otf", font_size if font_size else 32)
 
     img = Image.open(image, 'r')
-    #not needed
-    #back = Image.open(image, 'r')
-    #img_w, img_h = back.size
-    #bg_w, bg_h = img.size
-    #offset = ((bg_w - img_w) // 2, (bg_h - img_h) // 2)
-    #bback=back.filter(ImageFilter.BLUR)
-    #img.paste(bback, offset)
-
     d = ImageDraw.Draw(img)
 
-    sum = 0
-    for letter in sentence:
-        sum += d.textsize(letter, font=quote)[0]
-    average_length_of_letter = sum / len(sentence)
-
-    number_of_letters_for_each_line = (x1 / 1.618) / average_length_of_letter
-    incrementer = 0
-    fresh_sentence = ""
-
-    for letter in sentence:
-        if letter == "-":
-            fresh_sentence += "\n" + letter
-        elif incrementer < number_of_letters_for_each_line:
-            fresh_sentence += letter
+    wrapped_lines = []
+    for line in sentence.split("\n"):  # Erhalte ursprüngliche Zeilenumbrüche
+        if line.strip():  # Leere Zeilen beibehalten
+            wrapped_lines.extend(textwrap.wrap(line, width=int(width / textsize("A", quote_font)[0] * 1.2)))
         else:
-            if letter == " ":
-                fresh_sentence += "\n"
-                incrementer = 0
-            else:
-                fresh_sentence += letter
-        incrementer += 1
-    dim = d.textsize(fresh_sentence, font=quote)
-    x2 = dim[0]
-    y2 = dim[1]
+            wrapped_lines.append("")  # Behalte leere Zeilen bei
 
-    qx = x1 / 2 - x2 / 2
-    qy = y1 / 2 - y2 / 2
+    wrapped_text = "\n".join(wrapped_lines)
 
-    d.text((qx-1, qy-1), fresh_sentence, align="left", font=quote, fill=border_color)
-    d.text((qx+1, qy-1), fresh_sentence, align="left", font=quote, fill=border_color)
-    d.text((qx-1, qy+1), fresh_sentence, align="left", font=quote, fill=border_color)
-    d.text((qx+1, qy+1), fresh_sentence, align="left", font=quote, fill=border_color)
+    text_w, text_h = textsize(wrapped_text, quote_font)
+    qx = (img.width - text_w) / 2
+    qy = (img.height - text_h) / 2
 
-    d.text((qx, qy), fresh_sentence, align="left", font=quote, fill=fg)
+    # Randtext für bessere Lesbarkeit
+    for dx, dy in [(-1, -1), (1, -1), (-1, 1), (1, 1)]:
+        d.text((qx+dx, qy+dy), wrapped_text, align="left", font=quote_font, fill=border_color)
+
+    d.text((qx, qy), wrapped_text, align="left", font=quote_font, fill=fg)
 
     return img
