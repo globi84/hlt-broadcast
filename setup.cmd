@@ -14,18 +14,8 @@ if %ERRORLEVEL% == 0 (
 
     winget install OBSProject.OBSStudio
     winget install Zoom.Zoom
-    winget install Python.Python.3.10
-
-    echo ###################################################
-    echo #
-    echo # Install macrodeck from hand and do NOT start it
-    echo #
-    echo ###################################################
-    timeout 10
-
-    start "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://macrodeck.org/download
-    echo press anykey when it is done
-    pause
+    winget install Python.Python.3.12
+    winget install MacroDeck.MacroDeck
 
     echo ######################
     echo #

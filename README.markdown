@@ -57,7 +57,7 @@ Alles Installieren
 | Applikation | Install über Download                         | Install über winget                   |
 | ----------- | --------------------------------------------- | ------------------------------------- |
 | OBS         | [Download](https://obsproject.com/de)         | `winget install OBSProject.OBSStudio` |
-| Macro Deck  | [Download](https://macrodeck.org/download)    |                                       |
+| Macro Deck  | [Download](https://macrodeck.org/download)    | `winget install MacroDeck.MacroDeck`  |
 | Zoom        | [Download](https://zoom.us/download)          | `winget install Zoom.Zoom`            |
 | Python3.10  | [Download](https://www.python.org/downloads/) | `winget install Python.Python.3.10`   |
 
