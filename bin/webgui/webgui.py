@@ -96,4 +96,5 @@ def restart_allApps():
     system("powershell \".\\lib\\restart-apps.ps1 \'"+ configFile +"\'\"")
     return redirect(url_for("root", _anchor='schritt4'))
 
-app.run()
+if __name__ == "__main__":
+    app.run()
