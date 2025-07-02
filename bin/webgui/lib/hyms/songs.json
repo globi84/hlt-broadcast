@@ -424,7 +424,12 @@
         "Title": "Wenn so meine Tage rastlos entfliehn"
     },
     "50": {
-        "Text": [],
+        "Text": [
+            "1. O Herr, mein Gott, in Herrlichkeit dort oben, voll Staunen seh ich deiner Schöpfung Pracht; der Sterne Glanz, der Elemente Toben, das Universum zeugt von deiner Macht. \n\nDann preis ich dich, mein Heiland und mein Gott. Wie gross bist du Wie gross bist du Dann preis ich dich, mein Heiland und mein Gott. Wie gross bist du!  Wie gross bist du!",
+            "2. Wenn durch der Wälder Grün ich sinnend gehe und hör der Vögel Lied in Baum und Strauch; wenn von des Berges Höh ins Tal ich sehe und lausch dem Bach und spür des Windes Hauch: \n\nDann preis ich dich, mein Heiland und mein Gott. Wie gross bist du Wie gross bist du Dann preis ich dich, mein Heiland und mein Gott. Wie gross bist du!  Wie gross bist du!",
+            "3. Wenn ich bedenk, was du für mich gegeben, die Schmerzen all, die du gelitten hast: Du starbst am Kreuz, damit wir können leben, und nahmst auf dich all unserer Sünden Last. \n\nDann preis ich dich, mein Heiland und mein Gott. Wie gross bist du Wie gross bist du Dann preis ich dich, mein Heiland und mein Gott. Wie gross bist du!  Wie gross bist du!",
+            "4. Wenn Christus kommt, die Herschaft anzutreten, und führt mich heim zu ewiger Freud und Ruh dan beug ich mich, in Erfurcht anzbeten und rufe aus \"O Herr, wie gross bist du!\" \n\nDann preis ich dich, mein Heiland und mein Gott. Wie gross bist du Wie gross bist du Dann preis ich dich, mein Heiland und mein Gott. Wie gross bist du!  Wie gross bist du!"
+        ],
         "Title": "Wie groß bist du!"
     },
     "51": {
@@ -1236,7 +1241,11 @@
         "Title": "Hör unser Lied, o Herr"
     },
     "147": {
-        "Text": [],
+        "Text": [
+            "1. Weil mir so viel gegeben ist, so geb auch ich; dass du mir, Herr, so reichlich gibst, macht dankbar mich. Und darum will di Gaben dein ich jedem deiner Kinder weihn, das nötig hat die Hilfe mein.",
+            "2. Weil du mich nährst und ich durch dich behütet bin, wie könnt ich an des Nächsten Leid vorübergehn? Mit ihm will teilen ich mein Brot, auch geb ich Obdach ihm in Not und steh ihm bei, wenn er bedroht.",
+            "3. Weil ich mit deiner Liebe reich gesegnet bin, will ich sie weitergeben, Herr, in deinem Sinn. Gib deine Liebe, Herr, durch mich; in Wort und Tat will lieben ich: Die Liebe währet ewiglich."
+    ],
         "Title": "Weil mir so viel gegeben ist"
     },
     "148": {
