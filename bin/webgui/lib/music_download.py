@@ -12,21 +12,26 @@ def generate_songText(config, songNRs):
     deletFotos = "del /F /S /Q " + scriptRoot + "\\..\\"+ config["destination"] + "\*"
     os.system(deletFotos)
 
+
     songs = {}
     titles = get_songTitles(config)
 
+
+    # Inhaltsverzeichniss öffnen
+    toc = open(scriptRoot + config["source"]["toc"], "r", encoding="utf-8")
+    pattern = re.compile(
+            r'href="(?P<songuri>/study/music/[^"]+)"[^>]*>.*?'
+            r'<span class="songNumber-vZmKj">(?P<num>\d+)</span>',
+            re.DOTALL
+        )
+
+    songs_url = {m.group('num'): m.group('songuri') for m in pattern.finditer(toc.read())}
+
     for index, songNR in enumerate(songNRs):
-
-        #songNR = 122
-        # Inhaltsverzeichniss öffnen
-        toc = open(scriptRoot + config["source"]["toc"], "r", encoding="utf-8")
-
-        # Urls auslesen
-        x = re.search('(?s).+href="(?P<songuri>.+?)".+?songNumber.+?>'+str(songNR), toc.read())
 
         # Lied Holen
         r = subprocess.run(
-            ["curl", (config["baseURI"] + x['songuri'])], stdout=subprocess.PIPE)
+            ["curl", (config["baseURI"] + songs_url.get(str(songNR)))], stdout=subprocess.PIPE)
 
         # Text raus Holen
         songHtml = r.stdout.decode('utf-8').split("\n")
@@ -53,14 +58,14 @@ def generate_songText(config, songNRs):
                         break
                     i += 1
             i += 1
-        
+
         songs[songNR]= {
             "Text": songText,
             "Title": titles[str(songNR)]
         }
 
         # Bild erstellen
-        #for nr, strophe in enumerate(songText):    
+        #for nr, strophe in enumerate(songText):
 #
         #    img = convert(
         #        quote        = strophe,
